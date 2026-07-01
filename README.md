@@ -1,5 +1,6 @@
 # SELF-CALIBRATING-SMART-INDICATOR-MODULE-FOR-CONVENTIONAL-LATHE-MACHINES-WITHOUT-MACHINE-MODIFICATION
 Self-calibrating smart indicator module for conventional lathe machines, enabling accurate digital displacement measurement without requiring any machine modification.
+
 Project Overview
 
 The Self-Calibrating Smart Indicator Module is an intelligent measurement and alignment system designed for conventional lathe machines. Unlike traditional dial indicators, the proposed system automatically calibrates itself before operation, providing accurate real-time displacement measurements without requiring any mechanical modification to the existing machine.
