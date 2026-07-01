@@ -8,12 +8,13 @@ The Self-Calibrating Smart Indicator Module is an intelligent measurement and al
 The system is designed as a plug-and-play attachment, allowing industries and workshops to improve machining accuracy while preserving the original machine structure.
 
 🎯 Objectives
-Develop a portable smart indicator module
-Eliminate manual calibration errors
-Improve machining accuracy
-Reduce setup time
-Avoid permanent modification of conventional lathes
-Provide a low-cost digital measurement solution
+
+Developed a portable smart indicator module
+Eliminated manual calibration errors
+Improved machining accuracy
+Reduced setup time
+Provided a low-cost digital measurement solution
+
 🚀 Key Features
 
 ✔ Self-calibration before every measurement
@@ -67,7 +68,7 @@ LCD/OLED displays real-time values.
 If required, recalibration can be performed instantly.
 
 🛠 Hardware Components
-Component	        
+
 Microcontroller	
 MPU6050 Sensor
 LED-3
@@ -76,6 +77,7 @@ Sound sensor
 Power Supply	
 
 💻 Software Used
+
 Arduino IDE
 Proteus
 EasyEDA / KiCad
