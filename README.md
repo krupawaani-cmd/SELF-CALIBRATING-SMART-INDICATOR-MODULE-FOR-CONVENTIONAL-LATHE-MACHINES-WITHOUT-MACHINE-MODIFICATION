@@ -55,6 +55,7 @@ The system automatically establishes a reference position during startup, contin
 This significantly reduces operator effort while improving repeatability and machining precision.
 
 ⚙ Working Principle
+
 Power ON the module.
 Sensor initializes.
 Self-calibration starts automatically.
@@ -64,26 +65,16 @@ Sensor continuously measures displacement.
 Controller processes sensor data.
 LCD/OLED displays real-time values.
 If required, recalibration can be performed instantly.
-🧩 System Architecture
-Lathe Machine
-       │
-       ▼
-Precision Sensor
-       │
-       ▼
-Microcontroller
-       │
- ┌─────┴─────┐
- ▼           ▼
-Display   Calibration Logic
+
 🛠 Hardware Components
-Component	Purpose
-Microcontroller	System control
-Precision Sensor	Position measurement
-LCD/OLED Display	Measurement display
-Power Supply	Module power
-Push Buttons	Calibration & Reset
-Magnetic/Clamp Mount	Easy installation
+Component	        
+Microcontroller	
+MPU6050 Sensor
+LED-3
+Buzzer
+Sound sensor
+Power Supply	
+
 💻 Software Used
 Arduino IDE
 Proteus
