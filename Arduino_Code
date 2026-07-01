@@ -1,0 +1,84 @@
+#include <Wire.h>
+#include <MPU6050.h>
+
+#define SOUND_PIN A0
+#define BUZZER 13
+
+#define RED_LED 8
+#define YELLOW_LED 9
+#define GREEN_LED 10
+
+int lowThreshold = 565;
+int highThreshold = 580;
+
+MPU6050 mpu(0x68);
+
+int16_t ax, ay, az;
+
+void setup() {
+  Serial.begin(9600);
+  Wire.begin();
+
+  mpu.initialize();
+
+  pinMode(BUZZER, OUTPUT);
+  pinMode(RED_LED, OUTPUT);
+  pinMode(YELLOW_LED, OUTPUT);
+  pinMode(GREEN_LED, OUTPUT);
+
+  Serial.println("System Ready...");
+}
+
+void loop() {
+
+  int soundValue = analogRead(SOUND_PIN);
+
+  mpu.getAcceleration(&ax, &ay, &az);
+
+  // Simple vibration check (only X axis)
+  int vibration = abs(ax);
+
+  Serial.print("Sound: ");
+  Serial.print(soundValue);
+  Serial.print(" | Vib: ");
+  Serial.println(vibration);
+
+  // 🟢 NORMAL
+  if (soundValue <= lowThreshold && vibration < 5000) {
+    digitalWrite(GREEN_LED, HIGH);
+    digitalWrite(YELLOW_LED, LOW);
+    digitalWrite(RED_LED, LOW);
+
+    noTone(BUZZER);
+
+    Serial.println("System is in normal condition.");
+  }
+
+  // 🟡 ALERT
+  else if ((soundValue > lowThreshold && soundValue <= highThreshold) || (vibration >= 5000 && vibration < 12000)) {
+    digitalWrite(GREEN_LED, LOW);
+    digitalWrite(YELLOW_LED, HIGH);
+    digitalWrite(RED_LED, LOW);
+
+    tone(BUZZER, 2500);
+    delay(200);
+    noTone(BUZZER);
+
+    Serial.println("System is giving an alert condition.");
+  }
+
+  // 🔴 WARNING
+  else {
+    digitalWrite(GREEN_LED, LOW);
+    digitalWrite(YELLOW_LED, LOW);
+    digitalWrite(RED_LED, HIGH);
+
+    tone(BUZZER, 4000);
+    delay(600);
+    noTone(BUZZER);
+
+    Serial.println("System is in critical state and giving warning signal.");
+  }
+
+  delay(100);
+}
